@@ -10,11 +10,11 @@
                  [com.cemerick/piggieback "0.2.1"]
                  [reagent "0.6.0-alpha"]
                  [fipp "0.6.4"]
-                 [org.clojars.mysterysal/jobim "1.0.0"]
+                 [jobim "1.0.0-SNAPSHOT"]
                  [org.clojars.mysterysal/jobim-figwheel "0.1.0"]]
 
   :plugins [[lein-cljsbuild "1.1.1"]
-            [lein-figwheel "0.5.0"]]
+            [lein-figwheel "0.5.0-1"]]
 
   :source-paths ["src"]
 
@@ -27,13 +27,13 @@
                 :compiler {:output-to "resources/public/js/compiled/slides.js"
                            :output-dir "resources/public/js/compiled/out"
                            :asset-path "js/compiled/out"
-                           :main intro.core-test
+                           :main slides.core-test
                            :source-map true
                            :cache-analysis true}}
                {:id "min"
                 :source-paths ["src"]
                 :compiler {:output-to "resources/public/js/compiled/slides-min.js"
-                           :main intro.core
+                           :main slides.core
                            :optimizations :whitespace
                            :pretty-print false}}]}
 
@@ -41,4 +41,5 @@
              :nrepl-port 7888
              :nrepl-middleware ["cider.nrepl/cider-middleware"
                                 "refactor-nrepl.middleware/wrap-refactor"
-                                "cemerick.piggieback/wrap-cljs-repl"]})
+                                "cemerick.piggieback/wrap-cljs-repl"]
+             })

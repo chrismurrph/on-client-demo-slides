@@ -1,7 +1,7 @@
-(ns intro.core-test
+(ns slides.core-test
   (:require [cljs.test :refer-macros [deftest is run-tests]]
             [jobim.figwheel.helper]
-            [intro.core :as show]))
+            [slides.core :as show]))
 
 #_(deftest code-slide-test
   (is (= (get (:env show/code-slide) :a) 3))
