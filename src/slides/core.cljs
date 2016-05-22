@@ -14,7 +14,16 @@
          (->CaptionedPic
            "/pictures/dog_food.jpg"
            "Om Next")
-         (->Points ["component" "query" "query keyword" "default db format" "ident" "ident keyword"])
+         (->CaptionedPic
+           "/pictures/vacuum.jpg"
+           "(Household) Components that suck")
+         (->CaptionedPic
+           "/pictures/Visicalc.png"
+           "Spreadsheets - view is always 'live'")
+         (->CaptionedPic
+           "/pictures/calendar.jpg"
+           "No events: actionListener, subscribe, reaction, bind...")
+         (->Points ["component" "query" "query key(word)" "default db format" "ident" "ident keyword (by-id)"])
          (pseudo-clj-points 50 ["React component: props, children" "om dom namespaces"]
                             (defui AnyAction
                                    Object
@@ -67,7 +76,7 @@
          (pseudo-clj-points 60 ["In tree form, however not intended for components!"
                                 "Written by hand for start-up state"
                                 "Notice short cut of {:id 100} missing the rest of the query"
-                                "Components with idents needed for tree->db to work"]
+                                "Components with om/Ident needed for tree->db to work"]
                             (def init-state
                               {:graph/fake-graph {:id                1000
                                                   :graph/graph-lines [{:id 100}]}
@@ -120,4 +129,11 @@
                           (let [graph-lines [:fake-graph/by-id 1000 :graph/graph-lines]]
                             (if want-to-select?
                               (update-in st graph-lines (fn [v] (vec (conj v [:line/by-id id]))))
-                              (update-in st graph-lines (fn [v] (vec (remove #{[:line/by-id id]} v)))))))))
+                              (update-in st graph-lines (fn [v] (vec (remove #{[:line/by-id id]} v))))))))
+         (->Points ["AST fiddling"
+                    "set-query"
+                    "IQueryParams"
+                    "subquery"])
+         (->CaptionedPic
+           "/pictures/Saul-Goodman.jpeg"
+           "Welcome back to the fat client"))
