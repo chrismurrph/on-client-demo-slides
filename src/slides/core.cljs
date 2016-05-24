@@ -23,7 +23,13 @@
          (->CaptionedPic
            "/pictures/calendar.jpg"
            "No events: actionListener, subscribe, reaction, bind...")
-         (->Points ["component" "query" "query key(word)" "default db format" "ident" "ident keyword (by-id)"])
+         (->Points ["component"
+                    "query"
+                    "query key(word)"
+                    "default db format"
+                    "ident"
+                    "ident keyword (\"by-id\")"
+                    "mutation"])
          (pseudo-clj-points 50 ["React component: props, children" "om dom namespaces"]
                             (defui AnyAction
                                    Object
@@ -43,7 +49,6 @@
          (pseudo-clj-points 80 ["Joins - 1:M or 1:1"
                                 "When running 0 -> 4 (incl) graph lines"
                                 "All application data must be represented"
-                                "Could have used Checkbox twice"
                                 "Following all joins gives big query"
                                 "Query is a tree"
                                 "Where else :graph/graph-lines pops up..?"]
@@ -98,7 +103,6 @@
          (pseudo-clj-points 60 ["Table and ref entries: get-in or get"
                                 "This is default db format - fully normalized"
                                 "No repeats except for the duplication I introduced"
-                                "Ref entries for performance reasons"
                                 "Above only seen when (pprint @my-reconciler)"]
                             {:graph/fake-graph [:fake-graph/by-id 1000],
                              :app/app-lines    [[:line/by-id 100]
@@ -136,4 +140,5 @@
                     "subquery"])
          (->CaptionedPic
            "/pictures/Saul-Goodman.jpeg"
-           "Welcome back to the fat client"))
+           "Create yourself a rich client and profit...")
+         (->Points ["https://github.com/chrismurrph/om-next-client-demo"]))
