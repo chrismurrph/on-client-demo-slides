@@ -11,6 +11,7 @@
                  [reagent "0.6.0-alpha"]
                  [fipp "0.6.4"]
                  [jobim "1.0.0-SNAPSHOT"]
+                 #_[org.clojars.mysterysal/jobim "2.0.0"]
                  [org.clojars.mysterysal/jobim-figwheel "0.1.0"]]
 
   :plugins [[lein-cljsbuild "1.1.1"]
