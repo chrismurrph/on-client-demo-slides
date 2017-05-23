@@ -68,25 +68,14 @@
                      (defn finished? [[_ triple]]
                        (zero? (mod (reduce * triple) 910)))
                      (defn extract-res [[counted _]] counted))
-         (pseudo-clj-points 40
-                            ["[:a 1]"]
-                            (first {:a 1 :b 2}))
-         (pseudo-clj-points 40
-                            ["clojure.lang.MapEntry"]
-                            (type (first {:a 1 :b 2})))
-         (pseudo-clj-points 40
-                            ["(:a :b)"]
-                            (map key {:a 1 :b 2}))
-         (pseudo-clj-points 40
-                            ["(:a :b)"]
-                            (keys {:a 1 :b 2}))
-         (pseudo-clj 60
-                     (->> (iterate transition-state (make-init (map parse-line data)))
-                          (take-while #(not (nil? %)))
-                          (map :registers)
-                          (map #(some (fn [[k v]] (when (= #{61 17} v) k)) %))
-                          (filter #(not (nil? %)))
-                          first))
+         (pseudo-clj-points 60
+                            ["({:bot74 #{67}, :bot110 #{29}, :bot3 #{5} ...} { ... } ...)"]
+                            (->> (iterate transition-state (make-init (map parse-line data)))
+                                 (take-while #(not (nil? %)))
+                                 (map :registers)
+                                 (map #(some (fn [[k v]] (when (= #{61 17} v) k)) %))
+                                 (filter #(not (nil? %)))
+                                 first))
          (->Points
            ["Follow the provided sequence: either turn left (L) or right (R) 90 degrees"
             "Then walk forward the given number of blocks"
@@ -104,11 +93,12 @@
                             ["(2 0)"]
                             (reduce (partial map +) (list 0 0) [(list 1 0) (list 1 0)]))
          (pseudo-clj-points 60
-                            ["[\"R\" 23], [\"L\" 1], [\"R\" 2], [\"R\" 10], [\"R\" 34], [\"L\" 30]"
+                            ["[\"R\" 23], [\"L\" 1], [\"R\" 2], [\"R\" 10], [\"R\" 34], [\"R\" 30]"
                              "(1 0 1 2 3 4)"
                              "(1 0 1 2 3 0)"
                              "([1 0] [0 1] [1 0] [0 -1] [-1 0] [0 1])"
-                             "([1 0] [1 0] ..."]
+                             "([1 0] [1 0] ..."
+                             "((0 0) (1 0) (2 0) ...)"]
                             (defn positions [d]
                               (->> (map first d)
                                    (reductions #(({\L dec \R inc} %2) %1) 0)
@@ -122,6 +112,13 @@
                        (->> p
                             (map #(Math/abs %))
                             (reduce +))))
+         (pseudo-clj 40
+                     (conj (list) 0)
+                     (0)
+                     (conj '(0) 1)
+                     (1 0)
+                     (conj '(1 0) 2)
+                     (2 1 0))
          (pseudo-clj-points 40
                             ["((0 0) (1 0) (2 0) (3 0) (4 0) (4 -1) (4 -2) (4 -3) (3 -3) (2 -3) (2 -2) (2 -1) (2 0) (2 1))"
                              "(() ((0 0)) ((1 0) (0 0)) ((2 0) (1 0) (0 0)) ...)"
