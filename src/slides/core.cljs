@@ -77,7 +77,7 @@
                                  (filter #(not (nil? %)))
                                  first))
          (->Points
-           ["Follow the provided sequence: either turn left (L) or right (R) 90 degrees"
+           ["Either turn left (L) or right (R) 90 degrees"
             "Then walk forward the given number of blocks"
             "Easter Bunny HQ is actually at the first location you visit twice."])
          (pseudo-clj-points 60
@@ -120,9 +120,9 @@
                      (conj '(1 0) 2)
                      (2 1 0))
          (pseudo-clj-points 40
-                            ["((0 0) (1 0) (2 0) (3 0) (4 0) (4 -1) (4 -2) (4 -3) (3 -3) (2 -3) (2 -2) (2 -1) (2 0) (2 1))"
+                            ["((0 0) (1 0) (2 0) (3 0) (4 0) (4 -1) (4 -2) (4 -3) (3 -3) (2 -3) (2 -2))"
                              "(() ((0 0)) ((1 0) (0 0)) ((2 0) (1 0) (0 0)) ...)"
-                             "(((2 0) (2 -1) (2 -2) (2 -3) (3 -3) (4 -3) (4 -2) (4 -1) (4 0) (3 0) (2 0) (1 0) (0 0)))"
+                             "(((2 0) (2 -1) (2 -2) (2 -3) (3 -3) (4 -3) (4 -2) (4 -1) (4 0) (3 0)))"
                              "(2 0)"
                              "2"]
                             (->> [[\R 4] [\R 3] [\R 2] [\R 4]]
